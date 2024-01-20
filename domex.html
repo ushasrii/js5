@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remainder</title>
+    <style>
+        .remainder{
+            border:10px solid;
+            border-color: grey;
+            background-color:lightgray;
+            width:30%;
+            margin-left: 35%;
+            margin-top: 90px; 
+            border-radius: 8px;
+        }
+        .rem{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="remainder">
+    <div class="rem"> 
+    <h1>Remainder</h1>
+    <input type="text" id="taskInput" placeholder="Enter a new Task"/>
+    <input type="datetime-local" id="dateInput"/>
+    <button onclick="addTask()">Add task</button></div>
+    <ul id="taskList"></ul></div>
+    <script>
+        function addTask(){
+            const taskInput=document.getElementById("taskInput")
+            const taskList=document.getElementById("taskList")
+            const dateInput=document.getElementById("dateInput")
+            if(taskInput.value && dateInput.value!=='')
+            {
+                const newTask = document.createElement('li');
+
+                const  txtip = document.createElement('b')
+                const dtip = document.createElement('em')
+                txtip.textContent = taskInput.value
+                dtip.textContent = dateInput.value
+
+                newTask.appendChild(txtip)
+                newTask.appendChild(dtip)
+
+                taskList.appendChild(newTask)
+                taskInput.value = '';
+                dateInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
